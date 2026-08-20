@@ -33,12 +33,3 @@ uv run uvicorn src.main:app --reload
 # テストの実行
 uv run pytest
 ```
-
-```mermaid
-sequenceDiagram
-    Alice->>+John: Hello John, how are you?
-    Alice->>+John: John, can you hear me?
-    John-->>-Alice: Hi Alice, I can hear you!
-    John-->>-Alice: I feel great!
-
-```
