@@ -1,4 +1,5 @@
-from fastapi.testclient import TestClient
+import httpx
+import pytest
 
 from main import (
     MAX_TEMPERATURE,
@@ -28,10 +29,14 @@ def test_generate_forecast_rejects_blank_region():
         raise AssertionError("ValueError was not raised")
 
 
-def test_weather_endpoint_returns_forecast():
-    client = TestClient(app)
-
-    response = client.get("/weather/東京")
+@pytest.mark.anyio
+async def test_weather_endpoint_returns_forecast():
+    transport = httpx.ASGITransport(app=app)
+    async with httpx.AsyncClient(
+        transport=transport,
+        base_url="http://testserver",
+    ) as client:
+        response = await client.get("/weather/東京")
 
     assert response.status_code == 200
     payload = response.json()
