@@ -7,7 +7,7 @@ API は、[FastAPI](https://fastapi.tiangolo.com/)（Python）フレームワー
 
 ## 必要条件
 
-- Python 3.10 以上
+- Python 3.12 以上
 - uv
 
 ## セットアップ
