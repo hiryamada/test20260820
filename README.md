@@ -7,21 +7,21 @@ API は、[FastAPI](https://fastapi.tiangolo.com/)（Python）フレームワー
 
 ## 必要条件
 
-- Python 3.10 以上
-- pip
+- Python 3.12 以上
+- uv
 
 ## セットアップ
 
 ```bash
 # 依存パッケージのインストール
-pip install fastapi uvicorn
+uv sync
 ```
 
 ## 実行方法
 
 ```bash
 # 開発サーバーの起動
-uvicorn main:app --reload
+uv run uvicorn src.main:app --reload
 ```
 
 サーバー起動後、ブラウザで `http://127.0.0.1:8000` にアクセスすることで API を利用できます。
@@ -31,8 +31,7 @@ uvicorn main:app --reload
 
 ```bash
 # テストの実行
-pip install pytest httpx
-pytest
+uv run pytest
 ```
 
 ```mermaid
